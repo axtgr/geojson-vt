@@ -91,10 +91,19 @@ function convertPoint(coords, out) {
 function convertLine(ring, out, tolerance, isPolygon) {
     let x0, y0;
     let size = 0;
+    const isFlatArray = typeof ring[0] === 'number';
 
     for (let j = 0; j < ring.length; j++) {
-        const x = projectX(ring[j][0]);
-        const y = projectY(ring[j][1]);
+        let x, y;
+
+        if (isFlatArray) {
+            x = projectX(ring[j]);
+            y = projectY(ring[j + 1]);
+            j++;
+        } else {
+            x = projectX(ring[j][0]);
+            y = projectY(ring[j][1]);
+        }
 
         out.push(x, y, 0);
 
