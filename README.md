@@ -2,6 +2,9 @@
 
 [![Build Status](https://travis-ci.org/mapbox/geojson-vt.svg?branch=main)](https://travis-ci.org/mapbox/geojson-vt)
 
+**Note:** this fork supports flat arrays as coordinates (`[-5, -5, 10, 10]` instead of `[[-5, -5],  [10, 10]])`,
+which allows the use of TypedArrays.
+
 A highly efficient JavaScript library for **slicing GeoJSON data into vector tiles on the fly**,
 primarily designed to enable rendering and interacting with large geospatial datasets
 on the browser side (without a server).
